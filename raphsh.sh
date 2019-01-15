@@ -4,7 +4,7 @@
 ## Do no use sudo
 
 sudo apt-get update
-sudo apt-get install zsh wget git
+sudo apt-get install zsh wget git gawk
 zsh
 cd ~
 sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
@@ -24,7 +24,7 @@ done
 sudo chsh -s /bin/zsh $USER
 
 cd ~
-awk -i inplace -f zshrc.awk ~/.zshrc
+gawk -i inplace -f $(dirname $0)/zshrc.awk ~/.zshrc
 
 echo "source ~/.zshrc" | zsh
 
