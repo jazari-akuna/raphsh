@@ -3,6 +3,8 @@
 ## This script is a shell auto-configurator for ubuntu-like distros
 ## Do no use sudo
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
 sudo apt-get update
 sudo apt-get install zsh wget git gawk
 zsh
@@ -24,7 +26,7 @@ done
 sudo chsh -s /bin/zsh $USER
 
 cd ~
-gawk -i inplace -f $(dirname $0)/zshrc.awk ~/.zshrc
+gawk -i inplace -f $DIR/zshrc.awk ~/.zshrc
 
 echo "source ~/.zshrc" | zsh
 
